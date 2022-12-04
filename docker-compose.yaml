@@ -6,7 +6,7 @@ services:
                 image: atlassian/jira-software
                 container_name: jira_software
                 volumes:
-                        - jiradata:/var/atlassian/jira
+                        - jiradata:/var/atlassian/application-data/jira
                 ports:
                         - '8080:8080'
                 depends_on:
@@ -19,7 +19,7 @@ services:
                 image: postgres:14
                 container_name: postgresql
                 volumes:
-                        - postgresqldata_jira:/var/lib/postgresql
+                        - postgresqldata_jira:/var/lib/postgresql/data
                 ports:
                         - '5432:5432'
                 networks:
