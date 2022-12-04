@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+        jira:
+                restart: unless-stopped
+                image: atlassian/jira-software
+                container_name: jira_software
+                volumes:
+                        - jiradata:/var/atlassian/jira
+                ports:
+                        - '8080:8080'
+                depends_on:
+                        - postgresql                
+                networks:
+                        - jiranet
+
+        postgresql:
+                restart: unless-stopped
+                image: postgres:14
+                container_name: postgresql
+                volumes:
+                        - postgresqldata_jira:/var/lib/postgresql
+                ports:
+                        - '5432:5432'
+                networks:
+                        - jiranet
+                environment:
+                        - POSTGRES_USER=jira
+                        - POSTGRES_PASSWORD=jira
+                        - POSTGRES_DB=jiradb
+
+
+        smtp4dev:
+                restart: unless-stopped
+                image: rnwood/smtp4dev
+                
+                container_name: smtp4dev
+                volumes:
+                        - smtp4dev-data:/smtp4dev
+                ports:
+                        # Change the number before : to the port the web interface should be accessible on
+                        - '5000:80'
+                        # Change the number before : to the port the SMTP server should be accessible on
+                        - '25:25'
+                        # Change the number before : to the port the IMAP server should be accessible on
+                        - '143:143'
+              
+                networks:
+                        - jiranet
+volumes:
+        jiradata:
+        postgresqldata_jira:
+        smtp4dev-data:
+networks:
+        jiranet:
+
