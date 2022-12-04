@@ -1,11 +1,11 @@
-Docker-compose yaml file for jira, postgres and smtp4dev
+# Atlassian Jira with postgresql and smtp4dev in docker-compsoe
 
 Start with:
-`docker-compose up' 
+`docker-compose up`
 
 or
 
-'docker-compose up -d'
+`docker-compose up -d`
 
 to start it in background
 
