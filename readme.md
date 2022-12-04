@@ -1,24 +1,28 @@
-# Atlassian Jira with postgresql and smtp4dev in docker-compsoe
+# Atlassian Jira software, postgresql and smtp4dev in docker containers
+Easy to deploy Jira software with own postgresql database and smtp4dev for e-mail testing.
+Good for fast deployment of a clean Jira instance for testing or learning. 
 
-Start with:
-`docker-compose up`
-
-or
+## How to start
+***
+Clone this repository and run:
 
 `docker-compose up -d`
 
-to start it in background
+to start it in background. 
 
-Jira adress:
+1. Jira adress:
 
-<docker machine pd>:8080
+    `[dockerhost]:8080`
 
-smtp4dev adress:
+2. Smtp4dev adress:
 
-localhost:5000
+    `[dockerhost]:5000`
 
-postgres
+3. Postgresql adress:
 
-smpt4dev:
+    `[dockerhost]:5432`
+
+Smpt4dev source:
+
 https://github.com/rnwood/smtp4dev
 
