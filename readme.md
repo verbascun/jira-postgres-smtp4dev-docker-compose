@@ -3,7 +3,6 @@ Easy to deploy Jira software with own postgresql database and smtp4dev for e-mai
 Good for fast deployment of a clean Jira instance for testing or learning. 
 
 ## How to start
-***
 Clone this repository and run:
 
 `docker-compose up -d`
